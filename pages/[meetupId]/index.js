@@ -1,5 +1,5 @@
 import MeetupDetail from '../../components/meetups/MeetupDetail';
-import {getColletion} from '../../utils/mongo-data';
+import {getCollection} from '../../utils/mongo-data';
 import {ObjectId} from 'mongodb';
 import Head from 'next/head';
 import { SITE_NAME } from '../../utils/config';
@@ -24,7 +24,7 @@ const MeetupDetails = (props) => {
 };
 
 export async function getStaticPaths() {
-   const [meetupCollection, client] = await getColletion();
+   const [meetupCollection, client] = await getCollection();
    const allMeets = await meetupCollection.find({}).toArray();
    await client.close();
 
@@ -45,7 +45,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
 
    const currentId = context.params.meetupId;
-   const [meetCollection, client] = await getColletion()
+   const [meetCollection, client] = await getCollection()
    const currentMeetObj = await meetCollection.findOne({
       _id: ObjectId(currentId),
    });

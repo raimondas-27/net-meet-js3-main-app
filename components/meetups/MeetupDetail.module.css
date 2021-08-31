@@ -1,0 +1,13 @@
+.detail {
+    text-align: center;
+}
+
+.detail img {
+    max-width: 100%;
+}
+
+.detail h1 {
+    font-weight: normal;
+    font-size: 4rem;
+}
+

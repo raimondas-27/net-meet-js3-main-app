@@ -37,7 +37,7 @@ export async function getStaticPaths() {
    });
 
    return {
-      fallback: false,
+      fallback: "blocking",
       paths: pathsArrOfCurrentMeets,
    };
 }
@@ -63,7 +63,7 @@ export async function getStaticProps(context) {
             address: currentMeetObj.address,
             description: currentMeetObj.description,
          },
-         revalidate: 2,
+         revalidate: 1,
       },
    };
 }
